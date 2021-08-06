@@ -4,7 +4,7 @@ import likeIcon from '../../dbase/img/like.svg'
 import logo from '../../dbase/img/logo.svg'
 import {Container} from '../../GlobalStyle'
 import {
-    Header,
+    HeaderWrapper,
     HeaderInner,
     IconImg,
     Link,
@@ -14,9 +14,9 @@ import {
     NavMenuList
 } from './HeaderStyle'
 
-const HeaderComponent: React.FC = () => {
+const Header: React.FC = () => {
     return (
-        <Header>
+        <HeaderWrapper>
             <Container>
                 <HeaderInner>
                     <Link logoLink={'logoLink'}>
@@ -24,7 +24,7 @@ const HeaderComponent: React.FC = () => {
                     </Link>
                     <NavMenuList>
                         <NavMenuItem>
-                            <Link>Магазин</Link>
+                            <Link>МАГАЗИН</Link>
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
@@ -37,8 +37,8 @@ const HeaderComponent: React.FC = () => {
                     </MenuIcons>
                 </HeaderInner>
             </Container>
-        </Header>
+        </HeaderWrapper>
     )
 }
 
-export default HeaderComponent
+export default Header

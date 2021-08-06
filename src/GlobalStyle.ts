@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, {createGlobalStyle} from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -21,7 +21,6 @@ body{
     font-family: "Helvetica-Regular", sans-serif;
     font-size: 14px;
     color: black;
-    background: #111111;
     overflow-x: hidden;
 }
 ul{
@@ -35,10 +34,10 @@ a{
 
 export const Container = styled.div`
 	width: 100%;
-	z-index: 1;
-	max-width: 1300px;
-	padding: 0 50px;
-	margin: 0 auto;
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: auto;
+    margin-left: auto;
 
 	@media screen and (max-width: 991px) {
 		padding: 0 30px;

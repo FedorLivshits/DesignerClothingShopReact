@@ -1,13 +1,14 @@
 import React from 'react'
-import HeaderComponent from './Components/Header/Header'
+import Header from './Components/Header/Header'
 import {AppWrapper, GlobalStyle} from './GlobalStyle'
+import MainPage from './Pages/MainPage'
 
-
-function App() {
+const App: React.FC = () => {
     return (
         <AppWrapper>
             <GlobalStyle/>
-            <HeaderComponent/>
+            <Header/>
+            <MainPage/>
         </AppWrapper>
     )
 }

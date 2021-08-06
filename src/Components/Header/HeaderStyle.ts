@@ -5,7 +5,8 @@ interface LinkProps {
     readonly iconLink?: string
 }
 
-export const Header = styled.header`
+export const HeaderWrapper = styled.header`
+z-index: 100;
 	background: white;
 	width: 100%;
 	position: fixed;
@@ -15,7 +16,7 @@ export const HeaderInner = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	height: 60px;
+	height: 56px;
 `
 export const Logo = styled.img`
 	width: 30px;
@@ -26,6 +27,7 @@ export const IconImg = styled.img`
 export const NavMenuList = styled.ul``
 export const NavMenuItem = styled.li``
 export const Link = styled.a<LinkProps>`
+    font-size: 10px;
 	margin-right: ${props => (props.logoLink ? '15px' : '0')};
 	padding: ${props => (props.logoLink ? '0' : '10px')};
 	border-radius: ${props => (props.iconLink ? '50%' : '5px')};
