@@ -1,0 +1,4 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="fill-current" width="24" height="24"><defs><symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" id="cart_7ce8e0ce27c44d5baa721535ecede5f3">
+    <title>Cart</title>
+    <path d="M8 6H5C3.89543 6 3 6.89543 3 8V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V8C21 6.89543 20.1046 6 19 6H16M8 6V5C8 2.79086 9.79086 1 12 1V1C14.2091 1 16 2.79086 16 5V6M8 6H16" stroke="#000000" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+</symbol></defs><use xlink:href="#cart_7ce8e0ce27c44d5baa721535ecede5f3"></use></svg>

@@ -17,9 +17,10 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    color: black;
+    height: 100%;
     font-family: "Helvetica-Regular", sans-serif;
     font-size: 14px;
+    color: black;
     line-height: 21px;
     overflow-x: hidden;
 }
