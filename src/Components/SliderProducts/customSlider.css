@@ -1,0 +1,46 @@
+/*Custom react-elastic-slider*/
+.rec.rec-arrow {
+    background: rgba(235, 235, 235, 0.5);
+    border: none;
+    box-shadow: none;
+}
+
+.rec .rec-carousel {
+    position: relative
+}
+
+.rec.rec-arrow-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.rec.rec-arrow-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.rec.rec-arrow:hover {
+    box-shadow: none !important;
+    background-color: #ebebeb !important;
+    color: black !important;
+}
+
+.rec.rec-arrow:focus:enabled {
+    box-shadow: none !important;
+    background-color: #ebebeb !important;
+    color: black !important;
+}
+
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+
+.rec.rec-pagination {
+    display: none;
+}
