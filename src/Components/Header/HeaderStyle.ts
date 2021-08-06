@@ -6,11 +6,12 @@ interface LinkProps {
 }
 
 export const HeaderWrapper = styled.header`
-z-index: 100;
+    z-index: 100;
 	background: white;
 	width: 100%;
 	position: fixed;
 	top: 0;
+	border-bottom: 1px solid #bababa;
 `
 export const HeaderInner = styled.div`
 	display: flex;

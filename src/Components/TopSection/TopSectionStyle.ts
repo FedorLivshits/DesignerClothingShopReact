@@ -25,7 +25,7 @@ export const Title = styled.h1`
   font-size: 60px;
   font-weight: 400;
   position: absolute;
-  z-index: 100;
+  z-index: 99;
   line-height: 69px;
 `
 export const SubTitle = styled.div`
@@ -35,7 +35,7 @@ export const SubTitle = styled.div`
   font-size: 14px;
   font-weight: 400;
   position: absolute;
-  z-index: 100;
+  z-index: 99;
   line-height: 25px;
 `
 export const TopButton = styled.a`
@@ -45,4 +45,8 @@ export const TopButton = styled.a`
   padding: 5px;
   position: relative;
   left: 20px;
+  &:hover{
+    background: white;
+    color: black;
+  }
 `

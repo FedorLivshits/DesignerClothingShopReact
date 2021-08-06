@@ -1,7 +1,7 @@
 import React from 'react'
-import cartIcon from '../../dbase/img/Cart.svg'
-import likeIcon from '../../dbase/img/like.svg'
-import logo from '../../dbase/img/logo.svg'
+import cartIcon from '../../assets/img/Cart.svg'
+import likeIcon from '../../assets/img/like.svg'
+import logo from '../../assets/img/logo.svg'
 import {Container} from '../../GlobalStyle'
 import {
     HeaderWrapper,

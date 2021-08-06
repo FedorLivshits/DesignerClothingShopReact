@@ -21,7 +21,6 @@ body{
     font-family: "Helvetica-Regular", sans-serif;
     font-size: 14px;
     color: black;
-    overflow-x: hidden;
 }
 ul{
     list-style: none;
