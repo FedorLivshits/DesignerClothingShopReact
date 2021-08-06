@@ -1,15 +1,15 @@
 import React from 'react'
-import { GlobalStyle } from './GlobalStyle'
-import styled from 'styled-components'
+import HeaderComponent from './Components/Header/Header'
+import {AppWrapper, GlobalStyle} from './GlobalStyle'
 
 
 function App() {
-	return (
-		<>
-			<GlobalStyle />
-			
-		</>
-	)
+    return (
+        <AppWrapper>
+            <GlobalStyle/>
+            <HeaderComponent/>
+        </AppWrapper>
+    )
 }
 
 export default App

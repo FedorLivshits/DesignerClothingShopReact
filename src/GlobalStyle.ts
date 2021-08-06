@@ -21,8 +21,15 @@ body{
     font-family: "Helvetica-Regular", sans-serif;
     font-size: 14px;
     color: black;
-    line-height: 21px;
+    background: #111111;
     overflow-x: hidden;
+}
+ul{
+    list-style: none;
+}
+a{
+    color: inherit;
+    cursor: pointer;
 }
 `
 
@@ -36,4 +43,11 @@ export const Container = styled.div`
 	@media screen and (max-width: 991px) {
 		padding: 0 30px;
 	}
+`
+
+export const AppWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: auto;
 `
