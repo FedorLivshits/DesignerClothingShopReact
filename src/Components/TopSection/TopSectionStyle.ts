@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const TopSectionWrapper = styled.div<{ bg: boolean }>`
   min-height: 100vh;
@@ -38,7 +39,7 @@ export const SubTitle = styled.div`
   z-index: 99;
   line-height: 25px;
 `
-export const TopButton = styled.a`
+export const TopButton = styled(Link)`
   background: transparent;
   border: 1px solid white;
   color: white;

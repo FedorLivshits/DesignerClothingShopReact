@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 interface LinkProps {
     readonly logoLink?: string
@@ -31,11 +32,12 @@ export const NavMenuList = styled.ul`
 export const NavMenuItem = styled.li`
     margin-right: 10px;
 `
-export const Link = styled.a<LinkProps>`
+export const NavLink = styled(Link)<LinkProps>`
     font-size: 10px;
 	margin-right: ${props => (props.logoLink ? '15px' : '0')};
 	padding: ${props => (props.logoLink ? '0' : '10px')};
 	border-radius: ${props => (props.iconLink ? '50%' : '5px')};
+	text-decoration: none;
 	&:hover {
 		background: ${props => (props.logoLink ? 'white' : '#ebebeb')};
 	}

@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {Container} from '../../GlobalStyle'
 import Carousel from 'react-elastic-carousel'
 import './customSlider.css'
-import {Link, SliderProductsWrapper, Title} from './SliderProductsStyle'
+import {NavLink, SliderProductsWrapper, Title} from './SliderProductsStyle'
 import ProductCard from '../ProductCard/ProductCard'
-import styled from 'styled-components'
 
 
 const breakPoints = [
@@ -48,9 +47,9 @@ const SliderProducts = () => {
                     <Title>
                         ИЗБРАННОЕ НАШИМ СООБЩЕСТВОМ
                     </Title>
-                    <Link>
+                    <NavLink to='/shop'>
                         Посмотреть все товары
-                    </Link>
+                    </NavLink>
                     <Carousel breakPoints={breakPoints} isRTL={false}>
                         {products?.map(item => {
                             return <ProductCard key={item.id} img={item.photo} name={item['product-name']}

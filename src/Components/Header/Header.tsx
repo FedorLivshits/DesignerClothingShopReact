@@ -7,7 +7,7 @@ import {
     HeaderWrapper,
     HeaderInner,
     IconImg,
-    Link,
+    NavLink,
     Logo,
     MenuIcons,
     NavMenuItem,
@@ -19,24 +19,24 @@ const Header: React.FC = () => {
         <HeaderWrapper>
             <Container>
                 <HeaderInner>
-                    <Link logoLink={'logoLink'}>
+                    <NavLink to='/' logoLink={'logoLink'}>
                         <Logo src={logo} alt='logo'/>
-                    </Link>
+                    </NavLink>
                     <NavMenuList>
                         <NavMenuItem>
-                            <Link>МАГАЗИН</Link>
+                            <NavLink to='/shop'>МАГАЗИН</NavLink>
                         </NavMenuItem>
                         <NavMenuItem>
-                            <Link>О НАС</Link>
+                            <NavLink to='/about'>О НАС</NavLink>
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <Link iconLink={'iconLink'}>
+                        <NavLink to='liked' iconLink={'iconLink'}>
                             <IconImg src={likeIcon} alt='liked'/>
-                        </Link>
-                        <Link iconLink={'iconLink'}>
+                        </NavLink>
+                        <NavLink to='cart' iconLink={'iconLink'}>
                             <IconImg src={cartIcon} alt='cart'/>
-                        </Link>
+                        </NavLink>
                     </MenuIcons>
                 </HeaderInner>
             </Container>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const OurMissionSectionWrapper = styled.div`
@@ -36,7 +37,7 @@ export const MainTitle = styled.h3`
 export const TextCol = styled.p`
     line-height: 22px;
 `
-export const Button = styled.a`
+export const Button = styled(Link)`
    display: inline-block;
    background: transparent;
    border: 1px solid black;

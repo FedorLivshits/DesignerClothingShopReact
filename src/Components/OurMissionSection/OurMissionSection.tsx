@@ -39,7 +39,7 @@ const OurMissionSection: React.FC = () => {
                             <TextCol>
                                 Наша главная задача привнести больше свободы и креативности в коммерческий мир.
                             </TextCol>
-                            <Button>
+                            <Button to='/about'>
                                 Подробнее
                             </Button>
                         </OurMissionCol>
