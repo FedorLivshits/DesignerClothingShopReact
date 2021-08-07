@@ -17,7 +17,6 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body{
-    height: 100%;
     font-family: "Helvetica-Regular", sans-serif;
     font-size: 14px;
     color: black;
@@ -46,6 +45,6 @@ export const Container = styled.div`
 export const AppWrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	min-height: 100%;
-	overflow: auto;
+	min-height: 100vh;
+	overflow-x: hidden;
 `

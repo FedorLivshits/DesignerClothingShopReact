@@ -4,6 +4,7 @@ import Header from './Components/Header/Header'
 import {AppWrapper, GlobalStyle} from './GlobalStyle'
 import MainPage from './Pages/MainPage'
 import ShopPage from './Pages/ShopPage'
+import Footer from './Components/Footer/Footer'
 
 const App: React.FC = () => {
     return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
                 <Route exact path='/' render={() => <MainPage/>}/>
                 <Route path='/shop' render={() => <ShopPage/>}/>
             </Switch>
+            <Footer/>
         </AppWrapper>
     )
 }

@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
-export const ProductWrapper = styled.div`
+export const ProductWrapper = styled.div<{grid?: string}>`
  display: flex;
  flex-direction: column;
- max-width: 320px;
+ margin-right: ${props => props.grid ? '0' : '25px'};
 `
 export const ProductImage = styled.img`
- 
+ width: 100%;
 `
 export const ProductInfo = styled.div`
  display: flex;
