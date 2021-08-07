@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Container} from '../../GlobalStyle'
+import {Container} from '../../../GlobalStyle'
 import Carousel from 'react-elastic-carousel'
 import './customSlider.css'
 import {NavLink, SliderProductsWrapper, Title} from './SliderProductsStyle'
-import ProductCard from '../ProductCard/ProductCard'
+import ProductCard from '../../ProductCard/ProductCard'
 
 
 const breakPoints = [

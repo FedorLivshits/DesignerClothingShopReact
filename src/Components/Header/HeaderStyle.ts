@@ -37,7 +37,6 @@ export const NavLink = styled(Link)<LinkProps>`
 	margin-right: ${props => (props.logoLink ? '15px' : '0')};
 	padding: ${props => (props.logoLink ? '0' : '10px')};
 	border-radius: ${props => (props.iconLink ? '50%' : '5px')};
-	text-decoration: none;
 	&:hover {
 		background: ${props => (props.logoLink ? 'white' : '#ebebeb')};
 	}

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Container} from '../../GlobalStyle'
+import {Container} from '../../../GlobalStyle'
 import {SubTitle, Title, TopButton, TopSectionWrapper} from './TopSectionStyle'
 
 const TopSection: React.FC = () => {

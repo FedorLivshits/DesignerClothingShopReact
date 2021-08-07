@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container} from '../../GlobalStyle'
+import {Container} from '../../../GlobalStyle'
 import {
     Button,
     Image,
