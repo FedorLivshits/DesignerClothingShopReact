@@ -26,6 +26,9 @@ const Header: React.FC = () => {
                         <NavMenuItem>
                             <Link>МАГАЗИН</Link>
                         </NavMenuItem>
+                        <NavMenuItem>
+                            <Link>О НАС</Link>
+                        </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
                         <Link iconLink={'iconLink'}>

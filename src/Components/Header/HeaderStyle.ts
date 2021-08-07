@@ -25,8 +25,12 @@ export const Logo = styled.img`
 export const IconImg = styled.img`
 	width: 24px;
 `
-export const NavMenuList = styled.ul``
-export const NavMenuItem = styled.li``
+export const NavMenuList = styled.ul`
+    display: flex;
+`
+export const NavMenuItem = styled.li`
+    margin-right: 10px;
+`
 export const Link = styled.a<LinkProps>`
     font-size: 10px;
 	margin-right: ${props => (props.logoLink ? '15px' : '0')};
