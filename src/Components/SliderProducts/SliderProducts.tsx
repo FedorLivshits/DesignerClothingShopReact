@@ -4,6 +4,7 @@ import Carousel from 'react-elastic-carousel'
 import './customSlider.css'
 import {Link, SliderProductsWrapper, Title} from './SliderProductsStyle'
 import ProductCard from '../ProductCard/ProductCard'
+import styled from 'styled-components'
 
 
 const breakPoints = [
@@ -21,6 +22,8 @@ interface ProductsType {
     'about-product': string | null
     price: string | null
 }
+
+
 
 const SliderProducts = () => {
     const [products, setProducts] = useState<Array<ProductsType> | null>(null)
