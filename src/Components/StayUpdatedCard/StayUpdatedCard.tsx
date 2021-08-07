@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import {Container} from '../../GlobalStyle'
 import letter from '../../assets/img/letter.svg'
 import {Button, Form, Icon, Input, StayUpdatedWrapper, Text} from './StayUpdatedStyle'
 
-const StayUpdatedCard = () => {
+const StayUpdatedCard: React.FC = () => {
     return (
         <Container>
             <StayUpdatedWrapper>

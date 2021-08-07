@@ -5,6 +5,7 @@ import SliderProducts from '../Components/SliderProducts/SliderProducts'
 import Parallax from '../Components/Parallax/Parallax'
 import PartnersSection from '../Components/PartnersSection/PartnersSection'
 import StayUpdatedCard from '../Components/StayUpdatedCard/StayUpdatedCard'
+import Footer from '../Components/Footer/Footer'
 
 const MainPage: React.FC = () => {
     return (
@@ -15,6 +16,7 @@ const MainPage: React.FC = () => {
           <PartnersSection/>
           <OurMissionSection/>
           <StayUpdatedCard/>
+          <Footer/>
         </>
     )
 }
