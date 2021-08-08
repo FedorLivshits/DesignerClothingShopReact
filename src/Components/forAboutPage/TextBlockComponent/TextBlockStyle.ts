@@ -4,7 +4,6 @@ export const TextBlockWrapper = styled.div`
   padding: 100px 0;
   border-bottom: 1px solid white;
   color: white;
-    
 `
 export const BlockTitle = styled.h3`
   font-size: 105px;
@@ -14,7 +13,6 @@ export const BlockTitle = styled.h3`
 `
 export const TextWrapper = styled.p`
   max-width: 700px;
-
 `
 export const Text = styled.p`
   font-size: 18px;
