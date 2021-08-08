@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
-export const FooterWrapper = styled.footer`
-    margin-top: 200px;
-    margin-bottom: 100px;
+export const FooterWrapper = styled.footer<{blackBg?: boolean}>`
+    padding-top: 200px;
+    padding-bottom: 100px;
+    background: ${props => props.blackBg ? 'black' : 'white'};
+    color: ${props => props.blackBg ? 'white' : 'black'};
+`
+export const FooterInner = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;

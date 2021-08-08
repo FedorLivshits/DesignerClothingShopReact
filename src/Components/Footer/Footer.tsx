@@ -1,11 +1,15 @@
 import React from 'react'
+import {RouteComponentProps, withRouter } from 'react-router-dom'
 import {Container} from '../../GlobalStyle'
-import {FooterWrapper, Col, Title, Links, LinkItem, Link} from './FooterStyle'
+import {FooterWrapper, Col, Title, Links, LinkItem, Link, FooterInner} from './FooterStyle'
 
-const Footer: React.FC = () => {
+
+
+const FooterComponent: React.FC<RouteComponentProps> = (props) => {
     return (
+        <FooterWrapper blackBg={props.location.pathname === '/about'}>
         <Container>
-            <FooterWrapper>
+            <FooterInner >
                 <Col>
                     <Title>
                         Продавцам
@@ -99,9 +103,11 @@ const Footer: React.FC = () => {
                         </LinkItem>
                     </Links>
                 </Col>
-            </FooterWrapper>
+            </FooterInner>
         </Container>
+        </FooterWrapper>
     )
 }
+const Footer = withRouter(FooterComponent)
 
 export default Footer
