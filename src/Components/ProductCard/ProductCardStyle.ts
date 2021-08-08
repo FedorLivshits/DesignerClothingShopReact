@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProductWrapper = styled.div<{grid?: string}>`
+export const ProductWrapper = styled.div<{grid?: boolean}>`
  display: flex;
  flex-direction: column;
  margin-right: ${props => props.grid ? '0' : '25px'};

@@ -7,7 +7,7 @@ export const OurMissionSectionWrapper = styled.div`
    grid-gap: 40px;
    margin-bottom: 70px;
 `
-export const OurMissionCol = styled.div<{ mr?: string }>`
+export const OurMissionCol = styled.div<{ mr?: boolean }>`
    display: flex;
    flex-direction: column;
    align-items: flex-start;
@@ -23,8 +23,8 @@ export const Row = styled.div`
 export const Image = styled.img`
    width: 100%
 `
-export const TitleCol = styled.h5<{fs?: string}>`
-   font-size:  ${props => props.fs ? '18px' : '14px'};
+export const TitleCol = styled.h5<{fontBig?: boolean}>`
+   font-size:  ${props => props.fontBig ? '18px' : '14px'};
    font-weight: 400;
    margin-top: 10px;
    margin-bottom: 10px;

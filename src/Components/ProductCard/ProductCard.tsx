@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {Link} from 'react-router-dom'
 import {
     ProductDaysLeft,
     ProductDesigner,
@@ -10,13 +11,14 @@ import {
 } from './ProductCardStyle'
 
 interface ProductCardType {
+    id: string | null
     img: string | null
     name: string | null
     designer: string | null
     price: string | null
 }
 
-const ProductCard: React.FC<ProductCardType> = ({img, name, designer, price}) => {
+const ProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price}) => {
     const [number, setNumber] = useState(0)
 
     useEffect(() => {
@@ -36,11 +38,15 @@ const ProductCard: React.FC<ProductCardType> = ({img, name, designer, price}) =>
 
     return (
         <ProductWrapper>
-            <ProductImage src={img as string}/>
+            <Link to={`/shop/${id}`}>
+                <ProductImage src={img as string}/>
+            </Link>
             <ProductInfo>
-                <ProductName>
-                    {name!.toUpperCase()}
-                </ProductName>
+                <Link to={`/shop/${id}`}>
+                    <ProductName>
+                        {name!.toUpperCase()}
+                    </ProductName>
+                </Link>
                 <ProductDesigner>
                     {designer}
                 </ProductDesigner>

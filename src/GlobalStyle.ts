@@ -1,4 +1,5 @@
 import styled, {createGlobalStyle} from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const GlobalStyle = createGlobalStyle`
 *{

@@ -32,8 +32,8 @@ const OurMissionSection: React.FC = () => {
                         МЫ МЕНЯЕМ САМ СПОСОБ СОЗДАНИЯ ПРОДУКТА
                     </MainTitle>
                     <Row>
-                        <OurMissionCol mr={'mr'}>
-                            <TitleCol fs={'fs'}>
+                        <OurMissionCol mr>
+                            <TitleCol fontBig>
                                 МИССИЯ
                             </TitleCol>
                             <TextCol>
@@ -44,7 +44,7 @@ const OurMissionSection: React.FC = () => {
                             </Button>
                         </OurMissionCol>
                         <OurMissionCol>
-                            <TitleCol fs={'fs'}>
+                            <TitleCol fontBig>
                                 УСТОЙЧИВОСТЬ
                             </TitleCol>
                             <TextCol>

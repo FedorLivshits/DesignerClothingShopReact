@@ -52,7 +52,7 @@ const SliderProducts = () => {
                     </NavLink>
                     <Carousel breakPoints={breakPoints} isRTL={false}>
                         {products?.map(item => {
-                            return <ProductCard key={item.id} img={item.photo} name={item['product-name']}
+                            return <ProductCard key={item.id} id={item.id} img={item.photo} name={item['product-name']}
                                                 designer={item['product-designer']} price={item.price}/>
                         })}
                     </Carousel>

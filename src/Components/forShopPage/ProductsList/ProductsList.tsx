@@ -42,10 +42,10 @@ const ProductsList = () => {
     return (
         <Container>
             <ProductsListWrapper>
-                {products?.map(item => <ProductCard key={item.id} img={item.photo} name={item['product-name']}
+                {products?.map(item => <ProductCard key={item.id} id={item.id} img={item.photo} name={item['product-name']}
                                                     designer={item['product-designer']} price={item.price}
                     // @ts-ignore атрибут grid принадлежит стилю компонента, это не ошибка
-                                                    grid={'grid'}/>)}
+                                                    grid/>)}
             </ProductsListWrapper>
         </Container>
     )

@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         <HeaderWrapper>
             <Container>
                 <HeaderInner>
-                    <NavLink to='/' logoLink={'logoLink'}>
+                    <NavLink to='/' logolink={'logoLink'}>
                         <Logo src={logo} alt='logo'/>
                     </NavLink>
                     <NavMenuList>
@@ -31,10 +31,10 @@ const Header: React.FC = () => {
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <NavLink to='liked' iconLink={'iconLink'}>
+                        <NavLink to='liked' iconlink={'iconLink'}>
                             <IconImg src={likeIcon} alt='liked'/>
                         </NavLink>
-                        <NavLink to='cart' iconLink={'iconLink'}>
+                        <NavLink to='cart' iconlink={'iconLink'}>
                             <IconImg src={cartIcon} alt='cart'/>
                         </NavLink>
                     </MenuIcons>
