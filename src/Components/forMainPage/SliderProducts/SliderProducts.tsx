@@ -1,12 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {Container} from '../../../GlobalStyle'
 import Carousel from 'react-elastic-carousel'
 import './customSlider.css'
 import {NavLink, SliderProductsWrapper, Title} from './SliderProductsStyle'
 import ProductCard from '../../ProductCard/ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
-import { AppStateType } from '../../../redux/store'
+import {AppStateType} from '../../../redux/store'
 import {getProducts} from '../../../redux/main-reducer'
+import {fetchProducts} from '../../../api/api'
 
 
 const breakPoints = [
@@ -21,18 +22,10 @@ const SliderProducts = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        fetch('data.json', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                dispatch(getProducts(data))
-            })
-            .catch(() => alert('error'))
+        fetchProducts()
+            .then(products => dispatch(getProducts(products)))
     }, [])
+
     return (
         <>
             <Container>

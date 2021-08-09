@@ -1,16 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components'
 import {Container} from '../../../GlobalStyle'
 import ProductCard from '../../ProductCard/ProductCard'
-
-interface ProductsType {
-    id: string | null
-    photo: string | null
-    'product-name': string | null
-    'product-designer': string | null
-    'about-product': string | null
-    price: string | null
-}
+import {useDispatch, useSelector} from 'react-redux'
+import {AppStateType} from '../../../redux/store'
+import {fetchProducts} from '../../../api/api'
+import {getProducts} from '../../../redux/main-reducer'
 
 export const ProductsListWrapper = styled.div`
   margin: 50px 0;
@@ -23,26 +18,19 @@ export const ProductsListWrapper = styled.div`
 `
 
 const ProductsList = () => {
-    const [products, setProducts] = useState<Array<ProductsType> | null>(null)
+    const products = useSelector((state: AppStateType) => state.mainReducer.products)
+    const dispatch = useDispatch()
 
     useEffect(() => {
-        fetch('data.json', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data)
-            })
-            .catch(() => setProducts([]))
+        fetchProducts()
+            .then(products => dispatch(getProducts(products)))
     }, [])
 
     return (
         <Container>
             <ProductsListWrapper>
-                {products?.map(item => <ProductCard key={item.id} id={item.id} img={item.photo} name={item['product-name']}
+                {products?.map(item => <ProductCard key={item.id} id={item.id} img={item.photo}
+                                                    name={item['product-name']}
                                                     designer={item['product-designer']} price={item.price}
                     // @ts-ignore атрибут grid принадлежит стилю компонента, это не ошибка
                                                     grid/>)}
