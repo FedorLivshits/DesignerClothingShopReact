@@ -4,6 +4,9 @@ import Carousel from 'react-elastic-carousel'
 import './customSlider.css'
 import {NavLink, SliderProductsWrapper, Title} from './SliderProductsStyle'
 import ProductCard from '../../ProductCard/ProductCard'
+import {useDispatch, useSelector} from 'react-redux'
+import { AppStateType } from '../../../redux/store'
+import {getProducts} from '../../../redux/main-reducer'
 
 
 const breakPoints = [
@@ -13,19 +16,9 @@ const breakPoints = [
     {width: 1200, itemsToShow: 4}
 ]
 
-interface ProductsType {
-    id: string | null
-    photo: string | null
-    'product-name': string | null
-    'product-designer': string | null
-    'about-product': string | null
-    price: string | null
-}
-
-
-
 const SliderProducts = () => {
-    const [products, setProducts] = useState<Array<ProductsType> | null>(null)
+    const products = useSelector((state: AppStateType) => state.mainReducer.products)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         fetch('data.json', {
@@ -36,9 +29,9 @@ const SliderProducts = () => {
         })
             .then(res => res.json())
             .then(data => {
-                setProducts(data)
+                dispatch(getProducts(data))
             })
-            .catch(() => setProducts([]))
+            .catch(() => alert('error'))
     }, [])
     return (
         <>
