@@ -6,6 +6,7 @@ import MainPage from './Pages/MainPage'
 import ShopPage from './Pages/ShopPage'
 import Footer from './Components/Footer/Footer'
 import AboutPage from './Pages/AboutPage'
+import ProductPage from './Pages/ProductPage'
 
 const App: React.FC = () => {
     return (
@@ -14,7 +15,8 @@ const App: React.FC = () => {
             <Header/>
             <Switch>
                 <Route exact path='/' render={() => <MainPage/>}/>
-                <Route path='/shop' render={() => <ShopPage/>}/>
+                <Route exact path='/shop' render={() => <ShopPage/>}/>
+                <Route exact path='/shop/:id' render={() => <ProductPage/>}/>
                 <Route path='/about' render={() => <AboutPage/>}/>
             </Switch>
             <Footer/>

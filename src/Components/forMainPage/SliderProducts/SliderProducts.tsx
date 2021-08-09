@@ -6,7 +6,7 @@ import {NavLink, SliderProductsWrapper, Title} from './SliderProductsStyle'
 import ProductCard from '../../ProductCard/ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../../redux/store'
-import {getProducts} from '../../../redux/main-reducer'
+import {setProductsThunk} from '../../../redux/main-reducer'
 import {fetchProducts} from '../../../api/api'
 
 
@@ -22,8 +22,7 @@ const SliderProducts = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        fetchProducts()
-            .then(products => dispatch(getProducts(products)))
+        dispatch(setProductsThunk())
     }, [])
 
     return (

@@ -5,7 +5,7 @@ import ProductCard from '../../ProductCard/ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../../redux/store'
 import {fetchProducts} from '../../../api/api'
-import {getProducts} from '../../../redux/main-reducer'
+import {getProducts, setProductsThunk} from '../../../redux/main-reducer'
 
 export const ProductsListWrapper = styled.div`
   margin: 50px 0;
@@ -22,8 +22,7 @@ const ProductsList = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        fetchProducts()
-            .then(products => dispatch(getProducts(products)))
+        dispatch(setProductsThunk())
     }, [])
 
     return (
