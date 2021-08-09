@@ -7,11 +7,13 @@ import ShopPage from './Pages/ShopPage'
 import Footer from './Components/Footer/Footer'
 import AboutPage from './Pages/AboutPage'
 import ProductPage from './Pages/ProductPage'
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 
 const App: React.FC = () => {
     return (
         <AppWrapper>
             <GlobalStyle/>
+            <ScrollToTop />
             <Header/>
             <Switch>
                 <Route exact path='/' render={() => <MainPage/>}/>
