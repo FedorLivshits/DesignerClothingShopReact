@@ -1,93 +1,35 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {useDispatch, useSelector} from 'react-redux'
-import {AppStateType} from '../redux/store'
+import {AppStateType} from '../../redux/store'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
-import {getProduct} from '../redux/main-reducer'
-import {fetchProduct} from '../api/api'
+import {addToLiked, getProduct} from '../../redux/main-reducer'
+import {fetchProduct} from '../../api/api'
+import {ProductType} from '../../types/types'
+import {
+    AddButton, Button,
+    Designer,
+    PreOrder,
+    Price,
+    ProductDescr, ProductImage, ProductInfo, ProductName,
+    ProductPageWrapper,
+    Select, SelectTitle,
+    SelectWrapper,
+    Wrapper
+} from './ProductPageStyle'
 
-export const ProductPageWrapper = styled.div`
-     display: grid;
-     grid-template-columns: 2fr 1fr;
-`
-export const ProductImage = styled.img`
-margin-top: 58px;
-    width: 100%
-`
-export const ProductInfo = styled.div`
-    padding: 150px 40px;
-    background: transparent;
-    
-`
-export const Designer = styled.span`
-   display: block;
-   font-size: 14px;
-   margin-bottom: 15px;
-`
-export const ProductName = styled.h1`
-    font-size: 36px;
-    font-weight: 400;
-    line-height: 40px;
-    margin-bottom: 15px;
-`
-export const ProductDescr = styled.div`
-    font-size: 14px;
-    margin-bottom: 35px;
-`
-export const Wrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-`
-export const Price = styled.span`
-    font-size: 22px;
-`
-export const PreOrder = styled.span`
-    font-size: 14px;
-    opacity: 0.7;
-`
-export const Button = styled.button`
-    font-size: 10px;
-    color: white;
-    background: black;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    cursor: pointer;
-    float: right;
-`
-export const SelectWrapper = styled.div`
-    margin-top: 100px;
-    margin-bottom: 20px;
-`
-export const SelectTitle = styled.span`
-    display: block;
-    font-size: 10px;
-    opacity: 0.7;
-    margin-bottom: 10px;
-`
-export const AddButton = styled.button`
-    font-size: 14px;
-    color: white;
-    background: black;
-    padding: 10px 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 100%;
-    &:hover{
-      background: #2f2f2f;
-    }
-`
+
 type PathParamsType = {
     id: string
 }
 type PropsType = RouteComponentProps<PathParamsType>
 
 const ProductPageComponent: React.FC<PropsType> = (props) => {
+    const [productSize, setProductSize] = useState('XS')
+    const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
     const product = useSelector((state: AppStateType) => state.mainReducer.product)
     const dispatch = useDispatch()
+
 
     useEffect(() => {
         let productId: string | null = props.match.params.id
@@ -95,6 +37,20 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
             .then((product) => dispatch(getProduct(product[0])))
     }, [])
 
+    const onAddToLiked = (product: ProductType, size: string) => {
+        dispatch(addToLiked(product, size))
+    }
+    const disabledBtn = () => {
+        if (likedProducts.length) {
+            let storedLiked = likedProducts.some(p => p.id === product!.id)
+            console.log(storedLiked)
+            return storedLiked
+        }
+    }
+    const onSizeChange = (e: any) => {
+        setProductSize(e.target.value)
+        console.log(e.target.value)
+    }
     return (
         <>
             {product
@@ -120,20 +76,20 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     Предзакажите сейчас
                                 </PreOrder>
                             </Wrapper>
-                            <Button>
-                                ОТЛОЖИТЬ
+                            <Button onClick={() => onAddToLiked(product, productSize)} disabled={disabledBtn()}>
+                                {disabledBtn() ? 'ДОБАВЛЕНО' : 'ОТЛОЖИТЬ'}
                             </Button>
                             <SelectWrapper>
                                 <SelectTitle>
                                     Выберете размер
                                 </SelectTitle>
-                                <select style={{padding: '10px', fontSize: '14px', width: '100%'}}>
-                                    <option>XS</option>
-                                    <option>S</option>
-                                    <option>M</option>
-                                    <option>L</option>
-                                    <option>XL</option>
-                                </select>
+                                <Select onChange={(e) => onSizeChange(e)}>
+                                    <option value='XS'>XS</option>
+                                    <option value='S'>S</option>
+                                    <option value='M'>M</option>
+                                    <option value='L'>L</option>
+                                    <option value='XL'>XL</option>
+                                </Select>
                             </SelectWrapper>
                             <AddButton>
                                 ДОБАВИТЬ В КОРЗИНУ

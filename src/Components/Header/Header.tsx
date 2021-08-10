@@ -31,10 +31,10 @@ const Header: React.FC = () => {
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <NavLink to='liked' iconlink={'iconLink'}>
+                        <NavLink to='/liked' iconlink={'iconLink'}>
                             <IconImg src={likeIcon} alt='liked'/>
                         </NavLink>
-                        <NavLink to='cart' iconlink={'iconLink'}>
+                        <NavLink to='/cart' iconlink={'iconLink'}>
                             <IconImg src={cartIcon} alt='cart'/>
                         </NavLink>
                     </MenuIcons>
