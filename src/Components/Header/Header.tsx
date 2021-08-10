@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import cartIcon from '../../assets/img/Cart.svg'
 import likeIcon from '../../assets/img/like.svg'
 import logo from '../../assets/img/logo.svg'
@@ -13,8 +13,31 @@ import {
     NavMenuItem,
     NavMenuList
 } from './HeaderStyle'
+import {useSelector} from 'react-redux'
+import {AppStateType} from '../../redux/store'
+import {RouteComponentProps, withRouter} from 'react-router-dom'
 
-const Header: React.FC = () => {
+const Header: React.FC<RouteComponentProps> = ({location}) => {
+    const [likedProductsChanged, setLikedProductsChanged] = useState(false)
+    const [cartProductsChanged, setCartProductsChanged] = useState(false)
+    const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
+
+    useEffect(() => {
+        setLikedProductsChanged(false)
+        setCartProductsChanged(false)
+    }, [])
+
+    useEffect(() => {
+        setLikedProductsChanged(true)
+        setCartProductsChanged(true)
+    }, [likedProducts])
+
+    useEffect(() => {
+        if (location.pathname === '/liked') setLikedProductsChanged(false)
+        if (location.pathname === '/cart') setCartProductsChanged(false)
+
+    }, [location.pathname])
+
     return (
         <HeaderWrapper>
             <Container>
@@ -31,7 +54,7 @@ const Header: React.FC = () => {
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <NavLink to='/liked' iconlink={'iconLink'}>
+                        <NavLink to='/liked' iconlink={'iconLink'} likedChange={likedProductsChanged}>
                             <IconImg src={likeIcon} alt='liked'/>
                         </NavLink>
                         <NavLink to='/cart' iconlink={'iconLink'}>
@@ -44,4 +67,4 @@ const Header: React.FC = () => {
     )
 }
 
-export default Header
+export default withRouter(Header)

@@ -26,6 +26,10 @@ export const ProductDaysLeft = styled.span`
   font-size: 12px;
   opacity: 0.6;
 `
+export const ProductSize = styled.span`
+  padding-top: 3px;
+  font-size: 12px;
+`
 export const ProductPrice = styled.span`
   padding-top: 3px;
   font-size: 14px;

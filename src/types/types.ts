@@ -5,5 +5,6 @@ export type ProductType = {
     'product-designer': string | null
     'about-product': string | null
     'price': string | null
+     size?: string | null
 }
 

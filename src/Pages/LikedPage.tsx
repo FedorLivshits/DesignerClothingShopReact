@@ -7,6 +7,7 @@ import {ProductsListWrapper} from '../Components/forShopPage/ProductsList/Produc
 import styled from 'styled-components'
 import likeIcon from '../assets/img/like.svg'
 import { Link } from 'react-router-dom'
+import {ProductType} from '../types/types'
 
 export const LikedPageWrapper = styled.div`
   min-height: 100vh;
@@ -65,8 +66,8 @@ const LikedPage = () => {
             {likedProducts.length
                 ?
                 <ProductsListWrapper>
-                    {likedProducts.map(p => <ProductCard key={p.id} img={p.photo} designer={p['product-designer']}
-                                                         id={p.id} name={p['product-name']} price={p.price}/>)}
+                    {likedProducts.map((p: ProductType) => <ProductCard key={p.id} img={p.photo} designer={p['product-designer']}
+                                                         id={p.id} name={p['product-name']} price={p.price} size={p.size}/>)}
                 </ProductsListWrapper>
                 :
                 <>

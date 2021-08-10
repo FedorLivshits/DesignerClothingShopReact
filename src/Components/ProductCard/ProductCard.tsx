@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, RouteComponentProps, withRouter} from 'react-router-dom'
 import {
     ProductDaysLeft,
     ProductDesigner,
@@ -7,6 +7,7 @@ import {
     ProductInfo,
     ProductName,
     ProductPrice,
+    ProductSize,
     ProductWrapper
 } from './ProductCardStyle'
 
@@ -16,9 +17,12 @@ interface ProductCardType {
     name: string | null
     designer: string | null
     price: string | null
+    size?: string | null
 }
 
-const ProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price}) => {
+type PropsType = ProductCardType & RouteComponentProps
+
+const ProductCard: React.FC<PropsType> = ({id, img, name, designer, price, location, size}) => {
     const [number, setNumber] = useState(0)
 
     useEffect(() => {
@@ -53,6 +57,7 @@ const ProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price}
                 <ProductDaysLeft>
                     {number} {num_word(number)} до предзаказа
                 </ProductDaysLeft>
+                {location.pathname === '/liked' && <ProductSize>Выбранный размер: {size}</ProductSize>}
                 <ProductPrice>
                     {price} руб.
                 </ProductPrice>
@@ -60,4 +65,4 @@ const ProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price}
         </ProductWrapper>
     )
 }
-export default ProductCard
+export default withRouter(ProductCard)

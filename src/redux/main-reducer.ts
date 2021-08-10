@@ -34,7 +34,7 @@ const mainReducer = (state = initialState, action: any): InitialStateType => {
             return state
     }
 }
-type ActionTypes = GetProductsType | GetProductType
+type ActionTypes = GetProductsType & GetProductType
 
 type GetProductsType = {
     type: typeof GET_PRODUCTS
