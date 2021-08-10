@@ -8,8 +8,12 @@ import {
     ProductName,
     ProductPrice,
     ProductSize,
-    ProductWrapper
+    ProductWrapper,
+    IconClose
 } from './ProductCardStyle'
+import close from '../../assets/img/Close.svg'
+import {useDispatch} from 'react-redux'
+import {removeFromLiked} from '../../redux/main-reducer'
 
 interface ProductCardType {
     id: string | null
@@ -25,6 +29,8 @@ type PropsType = ProductCardType & RouteComponentProps
 const ProductCard: React.FC<PropsType> = ({id, img, name, designer, price, location, size}) => {
     const [number, setNumber] = useState(0)
 
+    const dispatch = useDispatch()
+
     useEffect(() => {
         let rand = 1 - 0.5 + Math.random() * (30)
         setNumber(Math.round(rand))
@@ -39,9 +45,12 @@ const ProductCard: React.FC<PropsType> = ({id, img, name, designer, price, locat
         if (num === 1) return words[0]
         return words[2]
     }
-
+    const onCloseBtn = (id: string) => {
+        dispatch(removeFromLiked(id))
+    }
     return (
         <ProductWrapper>
+            {location.pathname === '/liked' && <IconClose src={close} onClick={() => onCloseBtn(id as string)}/>}
             <Link to={`/shop/${id}`}>
                 <ProductImage src={img as string}/>
             </Link>

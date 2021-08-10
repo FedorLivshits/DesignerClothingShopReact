@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 interface LinkProps {
     readonly logolink?: string
     readonly iconlink?: string
-    readonly likedChange?: boolean
+    readonly likedchange?: boolean
 }
 
 export const HeaderWrapper = styled.header`
@@ -50,7 +50,7 @@ export const NavLink = styled(Link)<LinkProps>`
         bottom: 0;
         height: 8px;
         width: 8px;
-        background: ${props => props.likedChange ? 'darkred' : 'transparent'};
+        background: ${props => props.likedchange ? 'darkred' : 'transparent'};
         border-radius: 50%;
 	}
 `

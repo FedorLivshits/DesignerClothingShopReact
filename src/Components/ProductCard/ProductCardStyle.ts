@@ -4,6 +4,21 @@ export const ProductWrapper = styled.div<{grid?: boolean}>`
  display: flex;
  flex-direction: column;
  margin-right: ${props => props.grid ? '0' : '25px'};
+ position: relative;
+`
+export const IconClose = styled.img`
+ width: 30px;
+ background: #e2e2e2;
+ border-radius: 5px;
+ padding: 5px;
+ position: absolute;
+ top: 11px;
+ right: 12px;
+ bottom: 0;
+ cursor: pointer;
+ &:hover{
+    background: #cbcbcb;
+ }
 `
 export const ProductImage = styled.img`
  width: 100%;

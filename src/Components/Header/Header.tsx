@@ -23,11 +23,6 @@ const Header: React.FC<RouteComponentProps> = ({location}) => {
     const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
 
     useEffect(() => {
-        setLikedProductsChanged(false)
-        setCartProductsChanged(false)
-    }, [])
-
-    useEffect(() => {
         setLikedProductsChanged(true)
         setCartProductsChanged(true)
     }, [likedProducts])
@@ -54,7 +49,7 @@ const Header: React.FC<RouteComponentProps> = ({location}) => {
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <NavLink to='/liked' iconlink={'iconLink'} likedChange={likedProductsChanged}>
+                        <NavLink to='/liked' iconlink={'iconLink'} likedchange={likedProductsChanged}>
                             <IconImg src={likeIcon} alt='liked'/>
                         </NavLink>
                         <NavLink to='/cart' iconlink={'iconLink'}>

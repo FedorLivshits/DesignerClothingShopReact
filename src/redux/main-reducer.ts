@@ -1,11 +1,12 @@
 import {ProductType} from '../types/types'
-import {fetchProduct, fetchProducts} from '../api/api'
+import {fetchProducts} from '../api/api'
 import {Dispatch} from 'redux'
 
 const GET_PRODUCTS = 'GET_PRODUCTS'
 const GET_PRODUCT = 'GET_PRODUCT'
 const ADD_TO_CART = 'ADD_TO_CART'
 const ADD_TO_LIKED = 'ADD_TO_LIKED'
+const REMOVE_FROM_LIKED = 'REMOVE_FROM_LIKED'
 
 
 let initialState = {
@@ -30,6 +31,8 @@ const mainReducer = (state = initialState, action: any): InitialStateType => {
             return {...state, cart: [...state.cart, action.product]}
         case ADD_TO_LIKED:
             return {...state, liked: [...state.liked, {...action.product, size: action.size}]}
+        case REMOVE_FROM_LIKED:
+            return {...state, liked: state.liked.filter(p => p.id !== action.id)}
         default:
             return state
     }
@@ -56,6 +59,7 @@ export const getProducts = (products: Array<ProductType>) => ({type: GET_PRODUCT
 export const getProduct = (product: ProductType) => ({type: GET_PRODUCT, product})
 export const addToCart = (product: ProductType) => ({type: ADD_TO_CART, product})
 export const addToLiked = (product: ProductType, size: string) => ({type: ADD_TO_LIKED, product, size})
+export const removeFromLiked = (id: string) => ({type: REMOVE_FROM_LIKED, id})
 
 
 
