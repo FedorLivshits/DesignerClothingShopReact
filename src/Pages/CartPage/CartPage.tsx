@@ -5,7 +5,7 @@ import {AppStateType} from '../../redux/store'
 import {ProductType} from '../../types/types'
 import CartProductCard from '../../Components/CartProductCard/CartProductCard'
 import {
-    CartPageWrapper,
+    PageWrapper,
     CheckoutButton,
     MainTitle,
     NavLink,
@@ -27,7 +27,7 @@ const CartPage = () => {
 
     return (
         <Container>
-            <CartPageWrapper>
+            <PageWrapper>
                 <ProductsInCart>
                     <MainTitle>
                         ТОВАРЫ В КОРЗИНЕ
@@ -64,8 +64,8 @@ const CartPage = () => {
                                 ?
                                 <>
                                     {cartProducts.reduce((acc, p) => {
-                                        if (p.price) {
-                                            let price = +p.price
+                                        if (p.price && p.quantity) {
+                                            let price = +p.price * p.quantity
                                             return acc + price
                                         }
                                         return acc
@@ -76,11 +76,11 @@ const CartPage = () => {
                             }
                         </SubtotalPrice>
                     </SummaryWrapper>
-                    <CheckoutButton disabled={!cartProducts.length}>
+                    <CheckoutButton to='/order' disabled={!cartProducts.length}>
                         ПРОДОЛЖИТЬ ПОКУПКУ
                     </CheckoutButton>
                 </Summary>
-            </CartPageWrapper>
+            </PageWrapper>
         </Container>
     )
 }

@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
-
-export const CartPageWrapper = styled.div`
+export const PageWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
@@ -10,7 +9,8 @@ export const CartPageWrapper = styled.div`
 `
 export const MainTitle = styled.h2`
    padding-top: 120px;
-   padding-bottom: 15px;
+   padding-bottom: 20px;
+   border-bottom: 1px solid black;
    font-size: 14px;
    font-weight: 400;
 `
@@ -18,7 +18,6 @@ export const ProductsInCart = styled.div``
 export const Summary = styled.div``
 export const SummaryWrapper = styled.div`
    padding: 20px 0;
-   border-top: 1px solid black;
    display: flex;
    justify-content: space-between;
 `
@@ -28,7 +27,7 @@ export const Subtotal = styled.div`
 export const SubtotalPrice = styled.div`
    font-size: 14px;
 `
-export const CheckoutButton = styled.a<{ disabled: boolean }>`
+export const CheckoutButton = styled(Link)<{ disabled: boolean }>`
     display: block;
     width: 100%;
     background: ${props => props.disabled ? '#e4e6ea' : 'black'};

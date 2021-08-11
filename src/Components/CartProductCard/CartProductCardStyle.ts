@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CartProductCardWrapper = styled.div`
    display: flex;
    padding: 20px 0;
-   border-top: 1px solid black;
+   border-top: none;
    border-bottom: 1px solid black;
 `
 export const ProductImage = styled.img`

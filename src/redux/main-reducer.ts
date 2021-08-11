@@ -31,7 +31,7 @@ const mainReducer = (state = initialState, action: any): InitialStateType => {
         case ADD_TO_CART:
             return {...state, cart: [...state.cart, {...action.product, size: action.size, quantity: action.quantity}]}
         case ADD_TO_LIKED:
-            return {...state, liked: [...state.liked, {...action.product, size: action.size}]}
+            return {...state, liked: [...state.liked, {...action.product, size: action.size, quantity: action.quantity}]}
         case REMOVE_FROM_LIKED:
             return {...state, liked: state.liked.filter(p => p.id !== action.id)}
         case REMOVE_FROM_CART:
@@ -61,7 +61,7 @@ type AddToLikedType = {
 export const getProducts = (products: Array<ProductType>) => ({type: GET_PRODUCTS, products})
 export const getProduct = (product: ProductType) => ({type: GET_PRODUCT, product})
 export const addToCart = (product: ProductType,  size: string, quantity: number) => ({type: ADD_TO_CART, product, size, quantity})
-export const addToLiked = (product: ProductType, size: string) => ({type: ADD_TO_LIKED, product, size})
+export const addToLiked = (product: ProductType, size: string, quantity: number) => ({type: ADD_TO_LIKED, product, size, quantity})
 export const removeFromLiked = (id: string) => ({type: REMOVE_FROM_LIKED, id})
 export const removeFromCart = (id: string) => ({type: REMOVE_FROM_CART, id})
 

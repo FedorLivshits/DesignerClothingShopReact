@@ -10,6 +10,7 @@ import ProductPage from './Pages/ProductPage/ProductPage'
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import LikedPage from './Pages/LikedPage'
 import CartPage from './Pages/CartPage/CartPage'
+import OrderPage from './Pages/OrderPage'
 
 const App: React.FC = () => {
     return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
                 <Route path='/about' render={() => <AboutPage/>}/>
                 <Route exact path='/liked' render={() => <LikedPage/>}/>
                 <Route exact path='/cart' render={() => <CartPage/>}/>
+                <Route exact path='/order' render={() => <OrderPage/>}/>
             <Footer/>
         </AppWrapper>
     )

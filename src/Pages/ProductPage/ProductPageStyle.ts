@@ -72,7 +72,8 @@ export const Select = styled.select<{check?: boolean}>`
     opacity: 0.7;
     width: 100%;
     outline: none;
-    border: ${props => props.check ? '1px solid red' : ''}
+    border: ${props => props.check ? '1px solid red' : ''};
+    margin-bottom: 10px;
 `
 export const AddButton = styled(Link)<{disabled: boolean}>`
     display: block;

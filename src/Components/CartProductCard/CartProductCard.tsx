@@ -11,15 +11,15 @@ import {
 } from './CartProductCardStyle'
 import {useDispatch} from 'react-redux'
 import {removeFromCart} from '../../redux/main-reducer'
-import { ProductCardType } from '../../types/types'
+import {ProductCardType} from '../../types/types'
+import {RouteComponentProps, withRouter} from 'react-router-dom'
 
-const CartProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price, size, quantity}) => {
+const CartProductCard: React.FC<ProductCardType & RouteComponentProps> = ({id, img, name, designer, price, size, quantity, location}) => {
     const dispatch = useDispatch()
 
     const onRemoveBtn = (id: string) => {
         dispatch(removeFromCart(id))
     }
-
 
     return (
         <CartProductCardWrapper>
@@ -34,14 +34,19 @@ const CartProductCard: React.FC<ProductCardType> = ({id, img, name, designer, pr
                 <Amount>
                     Количество: {quantity}
                 </Amount>
-                <ButtonRemove onClick={() => onRemoveBtn(id as string)}>
-                    Удалить
-                </ButtonRemove>
+                {location.pathname === '/order'
+                    ?
+                    ''
+                    :
+                    <ButtonRemove onClick={() => onRemoveBtn(id as string)}>
+                        Удалить
+                    </ButtonRemove>
+                }
             </ProductInfo>
             <Price>
-                {price} руб.
+                {price && quantity ? +price * quantity : ''} руб.
             </Price>
         </CartProductCardWrapper>
     )
 }
-export default CartProductCard
+export default withRouter(CartProductCard)

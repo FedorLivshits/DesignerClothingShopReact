@@ -43,8 +43,13 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
             .then((product) => dispatch(getProduct(product[0])))
     }, [])
 
-    const onAddToLiked = (product: ProductType, size: string) => {
-        dispatch(addToLiked(product, size))
+    const onAddToLiked = (e:  React.MouseEvent<HTMLButtonElement, MouseEvent>, product: ProductType, size: string,  quantity: number) => {
+        if((!productSize || !productQuantity) || (!productSize && !productQuantity)){
+            e.preventDefault()
+            setcheckSelect(true)
+        }else{
+            dispatch(addToLiked(product, size, quantity))
+        }
     }
     const onAddToCart = (e:  React.MouseEvent<HTMLAnchorElement, MouseEvent>, product: ProductType, size: string, quantity: number) => {
         if((!productSize || !productQuantity) || (!productSize && !productQuantity)){
@@ -97,7 +102,7 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     Предзакажите сейчас
                                 </PreOrder>
                             </Wrapper>
-                            <Button onClick={() => onAddToLiked(product, productSize)} disabled={disableLikedBtn()}>
+                            <Button onClick={(e) => onAddToLiked(e, product, productSize, productQuantity)} disabled={disableLikedBtn()}>
                                 {disableLikedBtn() ? 'ДОБАВЛЕНО' : 'В ИЗБРАННОЕ'}
                             </Button>
                             <SelectWrapper>
