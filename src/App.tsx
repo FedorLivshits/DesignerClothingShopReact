@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Switch} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import Header from './Components/Header/Header'
 import {AppWrapper, GlobalStyle} from './GlobalStyle'
 import MainPage from './Pages/MainPage'
@@ -9,6 +9,7 @@ import AboutPage from './Pages/AboutPage'
 import ProductPage from './Pages/ProductPage/ProductPage'
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop'
 import LikedPage from './Pages/LikedPage'
+import CartPage from './Pages/CartPage/CartPage'
 
 const App: React.FC = () => {
     return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
                 <Route path='/shop/:id' render={() => <ProductPage/>}/>
                 <Route path='/about' render={() => <AboutPage/>}/>
                 <Route exact path='/liked' render={() => <LikedPage/>}/>
+                <Route exact path='/cart' render={() => <CartPage/>}/>
             <Footer/>
         </AppWrapper>
     )

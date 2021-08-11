@@ -78,7 +78,8 @@ export const AddButton = styled.button`
     outline: none;
     cursor: pointer;
     width: 100%;
-    &:hover{
-      background: #2f2f2f;
+    &:disabled{
+      pointer-events: none;
+      background: #4e4e4e;
     }
 `

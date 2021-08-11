@@ -1,19 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import styled from 'styled-components'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../redux/store'
 import {RouteComponentProps, withRouter} from 'react-router-dom'
-import {addToLiked, getProduct} from '../../redux/main-reducer'
+import {addToCart, addToLiked, getProduct} from '../../redux/main-reducer'
 import {fetchProduct} from '../../api/api'
 import {ProductType} from '../../types/types'
 import {
-    AddButton, Button,
+    AddButton,
+    Button,
     Designer,
     PreOrder,
     Price,
-    ProductDescr, ProductImage, ProductInfo, ProductName,
+    ProductDescr,
+    ProductImage,
+    ProductInfo,
+    ProductName,
     ProductPageWrapper,
-    Select, SelectTitle,
+    Select,
+    SelectTitle,
     SelectWrapper,
     Wrapper
 } from './ProductPageStyle'
@@ -27,6 +31,7 @@ type PropsType = RouteComponentProps<PathParamsType>
 const ProductPageComponent: React.FC<PropsType> = (props) => {
     const [productSize, setProductSize] = useState('XS')
     const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
+    const cartProducts = useSelector((state: AppStateType) => state.mainReducer.cart)
     const product = useSelector((state: AppStateType) => state.mainReducer.product)
     const dispatch = useDispatch()
 
@@ -40,11 +45,17 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
     const onAddToLiked = (product: ProductType, size: string) => {
         dispatch(addToLiked(product, size))
     }
-    const disabledBtn = () => {
+    const onAddToCart = (product: ProductType, size: string) => {
+        dispatch(addToCart(product, size))
+    }
+    const disableLikedBtn = () => {
         if (likedProducts.length) {
-            let storedLiked = likedProducts.some(p => p.id === product!.id)
-            console.log(storedLiked)
-            return storedLiked
+            return likedProducts.some(p => p.id === product!.id)
+        }
+    }
+    const disableCartBtn = () => {
+        if (cartProducts.length) {
+            return cartProducts.some(p => p.id === product!.id)
         }
     }
     const onSizeChange = (e: any) => {
@@ -76,8 +87,8 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     Предзакажите сейчас
                                 </PreOrder>
                             </Wrapper>
-                            <Button onClick={() => onAddToLiked(product, productSize)} disabled={disabledBtn()}>
-                                {disabledBtn() ? 'ДОБАВЛЕНО' : 'ОТЛОЖИТЬ'}
+                            <Button onClick={() => onAddToLiked(product, productSize)} disabled={disableLikedBtn()}>
+                                {disableLikedBtn() ? 'ДОБАВЛЕНО' : 'В ИЗБРАННОЕ'}
                             </Button>
                             <SelectWrapper>
                                 <SelectTitle>
@@ -91,8 +102,8 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     <option value='XL'>XL</option>
                                 </Select>
                             </SelectWrapper>
-                            <AddButton>
-                                ДОБАВИТЬ В КОРЗИНУ
+                            <AddButton onClick={() => onAddToCart(product, productSize)} disabled={disableCartBtn()}>
+                                {disableCartBtn() ? 'ДОБАВЛЕНО В КОРЗИНУ' : 'ДОБАВИТЬ В КОРЗИНУ'}
                             </AddButton>
                         </ProductInfo>
                     </ProductPageWrapper>

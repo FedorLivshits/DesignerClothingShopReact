@@ -15,7 +15,7 @@ import close from '../../assets/img/Close.svg'
 import {useDispatch} from 'react-redux'
 import {removeFromLiked} from '../../redux/main-reducer'
 
-interface ProductCardType {
+export interface ProductCardType {
     id: string | null
     img: string | null
     name: string | null
