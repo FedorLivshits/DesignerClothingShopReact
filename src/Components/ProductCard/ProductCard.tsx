@@ -14,15 +14,8 @@ import {
 import close from '../../assets/img/Close.svg'
 import {useDispatch} from 'react-redux'
 import {removeFromLiked} from '../../redux/main-reducer'
+import { ProductCardType } from '../../types/types'
 
-export interface ProductCardType {
-    id: string | null
-    img: string | null
-    name: string | null
-    designer: string | null
-    price: string | null
-    size?: string | null
-}
 
 type PropsType = ProductCardType & RouteComponentProps
 

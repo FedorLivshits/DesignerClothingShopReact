@@ -64,6 +64,7 @@ export const SelectTitle = styled.span`
     font-size: 10px;
     opacity: 0.7;
     margin-bottom: 10px;
+    margin-top: 10px;
 `
 export const Select = styled.select`
    padding: 10px; 

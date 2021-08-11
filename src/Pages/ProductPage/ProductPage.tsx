@@ -30,11 +30,11 @@ type PropsType = RouteComponentProps<PathParamsType>
 
 const ProductPageComponent: React.FC<PropsType> = (props) => {
     const [productSize, setProductSize] = useState('XS')
+    const [productQuantity, setProductQuantity] = useState(1)
     const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
     const cartProducts = useSelector((state: AppStateType) => state.mainReducer.cart)
     const product = useSelector((state: AppStateType) => state.mainReducer.product)
     const dispatch = useDispatch()
-
 
     useEffect(() => {
         let productId: string | null = props.match.params.id
@@ -45,8 +45,8 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
     const onAddToLiked = (product: ProductType, size: string) => {
         dispatch(addToLiked(product, size))
     }
-    const onAddToCart = (product: ProductType, size: string) => {
-        dispatch(addToCart(product, size))
+    const onAddToCart = (product: ProductType, size: string, quantity: number) => {
+        dispatch(addToCart(product, size, quantity))
     }
     const disableLikedBtn = () => {
         if (likedProducts.length) {
@@ -58,9 +58,11 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
             return cartProducts.some(p => p.id === product!.id)
         }
     }
-    const onSizeChange = (e: any) => {
+    const onSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setProductSize(e.target.value)
-        console.log(e.target.value)
+    }
+    const onQuantityProductChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        setProductQuantity(+e.target.value)
     }
     return (
         <>
@@ -101,8 +103,18 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     <option value='L'>L</option>
                                     <option value='XL'>XL</option>
                                 </Select>
+                                <SelectTitle>
+                                    Выберете количество
+                                </SelectTitle>
+                                <Select onChange={(e) => onQuantityProductChange(e)}>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+                                    <option value='5'>5</option>
+                                </Select>
                             </SelectWrapper>
-                            <AddButton to='/cart' onClick={() => onAddToCart(product, productSize)}
+                            <AddButton to='/cart' onClick={() => onAddToCart(product, productSize, productQuantity)}
                                        disabled={disableCartBtn() as boolean}>
                                 {disableCartBtn() ? 'ДОБАВЛЕНО В КОРЗИНУ' : 'ДОБАВИТЬ В КОРЗИНУ'}
                             </AddButton>

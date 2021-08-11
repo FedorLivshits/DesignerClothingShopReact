@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Container} from '../../GlobalStyle'
 import {useSelector} from 'react-redux'
 import {AppStateType} from '../../redux/store'
@@ -38,7 +38,7 @@ const CartPage = () => {
                             {cartProducts.map((p: ProductType) => <CartProductCard key={p.id} img={p.photo}
                                                                                    designer={p['product-designer']}
                                                                                    id={p.id} name={p['product-name']}
-                                                                                   price={p.price} size={p.size}/>)}
+                                                                                   price={p.price} size={p.size} quantity={p.quantity}/>)}
                         </>
                         :
                         <TextWrapper>

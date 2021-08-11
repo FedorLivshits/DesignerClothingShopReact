@@ -1,5 +1,4 @@
 import React from 'react'
-import {ProductCardType} from '../ProductCard/ProductCard'
 import {
     Amount,
     ButtonRemove,
@@ -12,13 +11,16 @@ import {
 } from './CartProductCardStyle'
 import {useDispatch} from 'react-redux'
 import {removeFromCart} from '../../redux/main-reducer'
+import { ProductCardType } from '../../types/types'
 
-const CartProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price, size}) => {
+const CartProductCard: React.FC<ProductCardType> = ({id, img, name, designer, price, size, quantity}) => {
     const dispatch = useDispatch()
 
     const onRemoveBtn = (id: string) => {
         dispatch(removeFromCart(id))
     }
+
+
     return (
         <CartProductCardWrapper>
             <ProductImage src={img as string}/>
@@ -30,7 +32,7 @@ const CartProductCard: React.FC<ProductCardType> = ({id, img, name, designer, pr
                     Размер: {size}
                 </Size>
                 <Amount>
-                    Количество
+                    Количество: {quantity}
                 </Amount>
                 <ButtonRemove onClick={() => onRemoveBtn(id as string)}>
                     Удалить
