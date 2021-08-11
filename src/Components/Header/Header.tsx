@@ -19,17 +19,14 @@ import {RouteComponentProps, withRouter} from 'react-router-dom'
 
 const Header: React.FC<RouteComponentProps> = ({location}) => {
     const [likedProductsChanged, setLikedProductsChanged] = useState(false)
-    const [cartProductsChanged, setCartProductsChanged] = useState(false)
     const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
 
     useEffect(() => {
         setLikedProductsChanged(true)
-        setCartProductsChanged(true)
     }, [likedProducts])
 
     useEffect(() => {
         if (location.pathname === '/liked') setLikedProductsChanged(false)
-        if (location.pathname === '/cart') setCartProductsChanged(false)
 
     }, [location.pathname])
 

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const ProductPageWrapper = styled.div`
      display: grid;
@@ -69,17 +70,13 @@ export const Select = styled.select`
    font-size: 14px; 
    width: 100%;
 `
-export const AddButton = styled.button`
+export const AddButton = styled(Link)<{disabled: boolean}>`
+    display: block;
+    text-align: center;
     font-size: 14px;
     color: white;
-    background: black;
+    background: ${props => props.disabled ?  '#4e4e4e' : 'black'};
     padding: 10px 20px;
-    border: none;
-    outline: none;
-    cursor: pointer;
     width: 100%;
-    &:disabled{
-      pointer-events: none;
-      background: #4e4e4e;
-    }
+    pointer-events: ${props => props.disabled && 'none'};
 `

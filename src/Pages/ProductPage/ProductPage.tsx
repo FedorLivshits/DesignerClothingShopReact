@@ -102,7 +102,8 @@ const ProductPageComponent: React.FC<PropsType> = (props) => {
                                     <option value='XL'>XL</option>
                                 </Select>
                             </SelectWrapper>
-                            <AddButton onClick={() => onAddToCart(product, productSize)} disabled={disableCartBtn()}>
+                            <AddButton to='/cart' onClick={() => onAddToCart(product, productSize)}
+                                       disabled={disableCartBtn() as boolean}>
                                 {disableCartBtn() ? 'ДОБАВЛЕНО В КОРЗИНУ' : 'ДОБАВИТЬ В КОРЗИНУ'}
                             </AddButton>
                         </ProductInfo>
