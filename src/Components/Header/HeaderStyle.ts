@@ -50,7 +50,7 @@ export const NavLink = styled(Link)<LinkProps>`
         bottom: 0;
         height: 8px;
         width: 8px;
-        background: ${props => props.likedchange ? 'darkred' : 'transparent'};
+        background: ${props => props.likedchange ? 'red' : 'transparent'};
         border-radius: 50%;
 	}
 `

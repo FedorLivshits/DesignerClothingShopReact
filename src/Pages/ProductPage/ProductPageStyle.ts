@@ -66,10 +66,13 @@ export const SelectTitle = styled.span`
     margin-bottom: 10px;
     margin-top: 10px;
 `
-export const Select = styled.select`
-   padding: 10px; 
-   font-size: 14px; 
-   width: 100%;
+export const Select = styled.select<{check?: boolean}>`
+    padding: 10px; 
+    font-size: 12px;
+    opacity: 0.7;
+    width: 100%;
+    outline: none;
+    border: ${props => props.check ? '1px solid red' : ''}
 `
 export const AddButton = styled(Link)<{disabled: boolean}>`
     display: block;
