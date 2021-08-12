@@ -1,8 +1,9 @@
 import {ProductType} from '../types/types'
-import {fetchProducts} from '../api/api'
+import {fetchProducts, fetchProductsByPage} from '../api/api'
 import {Dispatch} from 'redux'
 
 const GET_PRODUCTS = 'GET_PRODUCTS'
+const GET_PRODUCTS_PAGE = 'GET_PRODUCTS_PAGE'
 const GET_PRODUCT = 'GET_PRODUCT'
 const ADD_TO_CART = 'ADD_TO_CART'
 const ADD_TO_LIKED = 'ADD_TO_LIKED'
@@ -12,6 +13,7 @@ const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 
 let initialState = {
     products: [] as Array<ProductType>,
+    productsPage: [] as Array<ProductType>,
     product: null as null | ProductType,
     cart: localStorage.getItem('cart')
         ? JSON.parse(localStorage.getItem('cart') as string) as Array<ProductType>
@@ -25,7 +27,9 @@ type InitialStateType = typeof initialState
 const mainReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case GET_PRODUCTS:
-            return {...state, products: action.products}
+            return {...state, products: [...state.products, ...action.products]}
+        case GET_PRODUCTS_PAGE:
+            return {...state, productsPage: [...state.productsPage, ...action.productsPage]}
         case GET_PRODUCT:
             return {...state, product: action.product}
         case ADD_TO_CART:
@@ -59,6 +63,7 @@ type AddToLikedType = {
     product: ProductType
 }
 export const getProducts = (products: Array<ProductType>) => ({type: GET_PRODUCTS, products})
+export const getProductsPage = (productsPage: Array<ProductType>) => ({type: GET_PRODUCTS_PAGE, productsPage})
 export const getProduct = (product: ProductType) => ({type: GET_PRODUCT, product})
 export const addToCart = (product: ProductType,  size: string, quantity: number) => ({type: ADD_TO_CART, product, size, quantity})
 export const addToLiked = (product: ProductType, size: string, quantity: number) => ({type: ADD_TO_LIKED, product, size, quantity})
@@ -66,13 +71,22 @@ export const removeFromLiked = (id: string) => ({type: REMOVE_FROM_LIKED, id})
 export const removeFromCart = (id: string) => ({type: REMOVE_FROM_CART, id})
 
 
-
 export const setProductsThunk = () => {
     return (dispatch: Dispatch<ActionTypes>) => {
         fetchProducts()
             // @ts-ignore
-            .then(products => dispatch(getProducts(products)))
+            .then((products: ProductType) => dispatch(getProducts(products)))
     }
 }
+export const setProductsByPageThunk = (page: string) => {
+    return (dispatch: Dispatch<ActionTypes>) => {
+        fetchProductsByPage(page)
+            .then((productsPage: ProductType) => {
+                // @ts-ignore
+                return dispatch(getProductsPage(productsPage))
+            })
+    }
+}
+
 
 export default mainReducer

@@ -5,8 +5,9 @@ export interface ProductType {
     'product-designer': string | null
     'about-product': string | null
     'price': string | null
-    size?: string
-    quantity?: number
+     page?: string | null
+     size?: string
+     quantity?: number
 }
 
 export interface ProductCardType {
