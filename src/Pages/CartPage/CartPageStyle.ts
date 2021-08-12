@@ -22,7 +22,7 @@ export const SummaryWrapper = styled.div`
    justify-content: space-between;
 `
 export const Subtotal = styled.div`
-   font-size: 12px;
+   font-size: 14px;
 `
 export const SubtotalPrice = styled.div`
    font-size: 14px;
