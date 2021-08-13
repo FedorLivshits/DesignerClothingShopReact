@@ -20,8 +20,7 @@ const FormOrder = () => {
         },
         onSubmit: (values, {setSubmitting, resetForm}) => {
             setTimeout(() => {
-                console.log(values)
-                alert(JSON.stringify(values, null, 2))
+                alert(`Спасибо, ${values.name}! Мы приняли ваш заказ ;)`)
                 resetForm()
                 setSubmitting(false)
             }, 1000)

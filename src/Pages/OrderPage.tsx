@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Container} from '../GlobalStyle'
 import {MainTitle, PageWrapper, Subtotal, SubtotalPrice, SummaryWrapper} from './CartPage/CartPageStyle'
 import styled from 'styled-components'
@@ -7,10 +7,12 @@ import {ProductType} from '../types/types'
 import {useSelector} from 'react-redux'
 import {AppStateType} from '../redux/store'
 import FormOrder from '../Components/forOrderPage/FormOrder/FormOrder'
+import Loading from '../Components/Modal/Loading'
 
 export const Order = styled.div``
 
 const OrderPage = () => {
+
     const cartProducts = useSelector((state: AppStateType) => state.mainReducer.cart)
 
     return (
@@ -48,6 +50,9 @@ const OrderPage = () => {
                         </SubtotalPrice>
                     </SummaryWrapper>
                 </Order>
+                <Loading>
+
+                </Loading>
             </PageWrapper>
         </Container>
     )

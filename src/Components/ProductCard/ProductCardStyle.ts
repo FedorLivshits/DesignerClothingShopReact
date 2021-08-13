@@ -6,9 +6,9 @@ export const ProductWrapper = styled.div<{grid?: boolean}>`
  margin-right: ${props => props.grid ? '0' : '25px'};
  position: relative;
 `
-export const IconClose = styled.img`
+export const IconClose = styled.img<{whiteBg?: boolean}>`
  width: 30px;
- background: #e2e2e2;
+ background: ${props => props.whiteBg ? 'white' : '#e2e2e2'};
  border-radius: 5px;
  padding: 5px;
  position: absolute;

@@ -9,6 +9,8 @@ const ADD_TO_CART = 'ADD_TO_CART'
 const ADD_TO_LIKED = 'ADD_TO_LIKED'
 const REMOVE_FROM_LIKED = 'REMOVE_FROM_LIKED'
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
+const SET_SHOW_MODAL = 'SET_SHOW_MODAL'
+const IS_LOADING = 'LOADING'
 
 
 let initialState = {
@@ -21,6 +23,8 @@ let initialState = {
     liked: localStorage.getItem('liked')
         ? JSON.parse(localStorage.getItem('liked') as string) as Array<ProductType>
         : [],
+    showModal: false,
+    loading: false
 }
 type InitialStateType = typeof initialState
 
@@ -40,6 +44,10 @@ const mainReducer = (state = initialState, action: any): InitialStateType => {
             return {...state, liked: state.liked.filter(p => p.id !== action.id)}
         case REMOVE_FROM_CART:
             return {...state, cart: state.cart.filter(p => p.id !== action.id)}
+        case SET_SHOW_MODAL:
+            return {...state, showModal: action.showModal}
+        case IS_LOADING:
+            return {...state, loading: action.loading}
         default:
             return state
     }
@@ -69,22 +77,26 @@ export const addToCart = (product: ProductType,  size: string, quantity: number)
 export const addToLiked = (product: ProductType, size: string, quantity: number) => ({type: ADD_TO_LIKED, product, size, quantity})
 export const removeFromLiked = (id: string) => ({type: REMOVE_FROM_LIKED, id})
 export const removeFromCart = (id: string) => ({type: REMOVE_FROM_CART, id})
+export const setShowModal = (show: boolean) => ({type: SET_SHOW_MODAL, show})
+export const loading = (loading: boolean) => ({type: IS_LOADING, loading})
 
 
 export const setProductsThunk = () => {
-    return (dispatch: Dispatch<ActionTypes>) => {
-        fetchProducts()
-            // @ts-ignore
-            .then((products: ProductType) => dispatch(getProducts(products)))
+    return async (dispatch: Dispatch<ActionTypes>) => {
+        const products = await fetchProducts()
+        // @ts-ignore
+        dispatch(getProducts(products))
     }
 }
 export const setProductsByPageThunk = (page: string) => {
-    return (dispatch: Dispatch<ActionTypes>) => {
-        fetchProductsByPage(page)
-            .then((productsPage: ProductType) => {
-                // @ts-ignore
-                return dispatch(getProductsPage(productsPage))
-            })
+    return  async (dispatch: Dispatch<ActionTypes>) => {
+        // @ts-ignore
+        dispatch(loading(true))
+       const productsPage = await fetchProductsByPage(page)
+        // @ts-ignore
+        dispatch(getProductsPage(productsPage))
+        // @ts-ignore
+        dispatch(loading(false))
     }
 }
 

@@ -9,12 +9,12 @@ import StayUpdatedCard from '../Components/forMainPage/StayUpdatedCard/StayUpdat
 const MainPage: React.FC = () => {
     return (
         <>
-          <TopSection/>
-          <SliderProducts/>
-          <Parallax/>
-          <PartnersSection/>
-          <OurMissionSection/>
-          <StayUpdatedCard/>
+            <TopSection/>
+            <SliderProducts/>
+            <Parallax/>
+            <PartnersSection/>
+            <OurMissionSection/>
+            <StayUpdatedCard/>
         </>
     )
 }
