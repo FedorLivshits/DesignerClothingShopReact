@@ -5,17 +5,40 @@ export const StayUpdatedWrapper = styled.div`
    align-items: center;
    background: black;
    color: white;
-   height: 120px;
+   padding: 20px 0;
+     @media screen and (max-width: 850px) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 `
 export const Icon = styled.img`
-   margin: 0 30px;
+   margin-left: 30px;
+   @media screen and (max-width: 968px) {
+        display: none;
+    }
 `
 export const Text = styled.p`
-   
+   margin-left: 30px;
+     @media screen and (max-width: 1300px) {
+        max-width: 500px;
+    }
+     @media screen and (max-width: 1200px) {
+        max-width: 300px;
+    }
+     @media screen and (max-width: 850px) {
+        width: auto;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 `
 export const Form = styled.form`
    margin-left: auto;
    padding-right: 30px;
+     @media screen and (max-width: 850px) {
+        margin-left: 0;
+        padding-right: 0;
+    }
 `
 export const Input = styled.input`
    padding: 20px;
@@ -29,6 +52,10 @@ export const Input = styled.input`
       background: white;
       color: black;
    }
+   @media screen and (max-width: 550px) {
+      width: 100%;
+      border-right: 1px solid white;
+   }
 `
 export const Button = styled.button`
    background: black;
@@ -40,5 +67,9 @@ export const Button = styled.button`
    &:hover{
       background: white;
       color: black;
+   }
+   @media screen and (max-width: 550px) {
+      width: 100%;
+      border-left: 1px solid white;
    }
 `

@@ -12,6 +12,8 @@ export const ProductsListWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 15px;
+  position: relative;
+  left: 10px;
   @media screen and (max-width: 768px) {
 		grid-template-columns: 1fr;
 	}
@@ -37,7 +39,9 @@ const ProductsList = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(setProductsByPageThunk('1'))
+        if(!productsPage.length) {
+            dispatch(setProductsByPageThunk('1'))
+        }
     }, [])
 
     const onLoadMoreBtn = () => {
@@ -47,7 +51,7 @@ const ProductsList = () => {
     return (
         <Container>
             <ProductsListWrapper>
-                {productsPage?.map((item) => <ProductCard key={item.id} id={item.id} img={item.photo}
+                {productsPage?.map((item, i) => <ProductCard key={i} id={item.id} img={item.photo}
                                                     name={item['product-name']}
                                                     designer={item['product-designer']} price={item.price}
                                                     // @ts-ignore

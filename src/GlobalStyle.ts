@@ -38,8 +38,8 @@ export const Container = styled.div`
     padding-left: 50px;
     margin-right: auto;
     margin-left: auto;
-	@media screen and (max-width: 991px) {
-		padding: 0 30px;
+	@media screen and (max-width: 992px) {
+		padding: 0 15px;
 	}
 `
 

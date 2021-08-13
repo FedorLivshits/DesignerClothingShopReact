@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 export const SliderProductsWrapper = styled.div`
    min-height: 100vh;
+   position: relative;
+   left: 10px;
 `
 export const Title = styled.h3`
    padding-top: 70px;

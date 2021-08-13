@@ -18,6 +18,9 @@ export const TopSectionWrapper = styled.div<{ bg: boolean }>`
     width: 100%;
     background: rgba(0,0,0,.3);
   }
+  @media screen and (max-width: 768px) {
+	min-height: 50vh;
+  }
 `
 export const Title = styled.h1`
   top: 120px;
@@ -28,6 +31,17 @@ export const Title = styled.h1`
   position: absolute;
   z-index: 99;
   line-height: 69px;
+  @media screen and (max-width: 992px) {
+	font-size: 45px;
+	line-height: 55px;
+  }
+   @media screen and (max-width: 768px) {
+	font-size: 35px;
+	line-height: 45px;
+  }
+   @media screen and (max-width: 550px) {
+	line-height: 42px;
+  }
 `
 export const SubTitle = styled.div`
   bottom: 100px;
@@ -38,6 +52,12 @@ export const SubTitle = styled.div`
   position: absolute;
   z-index: 99;
   line-height: 25px;
+  @media screen and (max-width: 768px) {
+       bottom: 5%;
+	}
+  @media screen and (max-width: 550px) {
+     display: none;
+  }
 `
 export const TopButton = styled(Link)`
   background: transparent;
@@ -49,5 +69,16 @@ export const TopButton = styled(Link)`
   &:hover{
     background: white;
     color: black;
+  }
+  @media screen and (max-width: 768px) {
+    display: block;
+    width: 50%;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    text-align: center;
   }
 `

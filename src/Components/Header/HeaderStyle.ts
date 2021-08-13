@@ -53,6 +53,9 @@ export const NavLink = styled(Link)<LinkProps>`
         background: ${props => props.likedchange ? 'red' : 'transparent'};
         border-radius: 50%;
 	}
+	@media screen and (max-width: 769px) {
+      font-size: 12px;
+   }
 `
 export const MenuIcons = styled.div`
 	display: flex;

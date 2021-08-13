@@ -5,6 +5,7 @@ import {
     Image,
     MainTitle,
     OurMissionCol,
+    OurMissionColGif,
     OurMissionSectionWrapper,
     Row,
     TextCol,
@@ -16,13 +17,13 @@ const OurMissionSection: React.FC = () => {
     return (
         <Container>
             <OurMissionSectionWrapper>
-                <OurMissionCol>
+                <OurMissionColGif>
                     <Image
                         src='https://d3fc22kf489ohb.cloudfront.net/assets/24da5a0cbfd03be1d661f569ca09645cb568bee3/static/media/made-with-love.4c18f611.gif'/>
                     <TitleCol>
                         СДЕЛАНО С ЛЮБОВЬЮ НА НАШЕМ ПРОИЗВОДСТВЕ В ВЕЛИКОБРИТАНИИ
                     </TitleCol>
-                </OurMissionCol>
+                </OurMissionColGif>
                 <OurMissionCol>
                     <Image
                         src='https://everpress.imgix.net/assets/24da5a0cbfd03be1d661f569ca09645cb568bee3/static/media/mission.20307e52.jpg?w=826&h=1064&auto=format&bg=F7F8F9&fit=fill'/>

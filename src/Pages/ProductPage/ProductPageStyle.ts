@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom'
 export const ProductPageWrapper = styled.div`
      display: grid;
      grid-template-columns: 2fr 1fr;
+     @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
 `
 export const ProductImage = styled.img`
     margin-top: 58px;
@@ -11,7 +14,10 @@ export const ProductImage = styled.img`
 `
 export const ProductInfo = styled.div`
     padding: 150px 40px;
-    background: white;  
+    background: white; 
+    @media screen and (max-width: 768px) {
+       padding: 20px 15px;
+    } 
 `
 export const Designer = styled.span`
    display: block;
@@ -23,6 +29,9 @@ export const ProductName = styled.h1`
     font-weight: 400;
     line-height: 40px;
     margin-bottom: 15px;
+    @media screen and (max-width: 550px) {
+      font-size: 30px;
+    } 
 `
 export const ProductDescr = styled.div`
     font-size: 14px;
@@ -58,6 +67,9 @@ export const Button = styled.button`
 export const SelectWrapper = styled.div`
     margin-top: 100px;
     margin-bottom: 20px;
+    @media screen and (max-width: 550px) {
+      margin-top: 60px;
+    } 
 `
 export const SelectTitle = styled.span`
     display: block;

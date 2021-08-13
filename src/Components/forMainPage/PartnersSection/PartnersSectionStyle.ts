@@ -8,6 +8,11 @@ export const Title = styled.div`
     font-weight: 400;
     line-height: 69px;
     margin-bottom: 50px;
+    @media screen and (max-width: 768px) {
+       margin-top: 70px;
+       font-size: 30px;
+       line-height: 40px;
+  }
 `
 export const PartnersBrandsInner = styled.div`
     display: flex;

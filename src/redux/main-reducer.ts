@@ -27,7 +27,7 @@ type InitialStateType = typeof initialState
 const mainReducer = (state = initialState, action: any): InitialStateType => {
     switch (action.type) {
         case GET_PRODUCTS:
-            return {...state, products: [...state.products, ...action.products]}
+            return {...state, products: action.products}
         case GET_PRODUCTS_PAGE:
             return {...state, productsPage: [...state.productsPage, ...action.productsPage]}
         case GET_PRODUCT:

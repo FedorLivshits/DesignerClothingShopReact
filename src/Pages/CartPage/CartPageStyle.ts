@@ -6,6 +6,9 @@ export const PageWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
     min-height: 100vh;
+    @media screen and (max-width: 768px) {
+       grid-template-columns: 1fr;
+    } 
 `
 export const MainTitle = styled.h2`
    padding-top: 120px;

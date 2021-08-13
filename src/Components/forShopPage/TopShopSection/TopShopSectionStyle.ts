@@ -17,6 +17,9 @@ export const TopShopWrapper = styled.div`
     width: 100%;
     background: rgba(0,0,0,.3);
   }
+   @media screen and (max-width: 768px) {
+	height: 50vh;
+  }
 `
 export const Title = styled.h1`
     bottom: 100px;
@@ -27,6 +30,9 @@ export const Title = styled.h1`
     position: absolute;
     z-index: 99;
     line-height: 69px;
+    @media screen and (max-width: 768px) {
+		font-size: 35px;
+	}
 `
 export const SubTitle = styled.div`
     bottom: 54px;
@@ -37,4 +43,7 @@ export const SubTitle = styled.div`
     position: absolute;
     z-index: 99;
     line-height: 18px;
+    @media screen and (max-width: 768px) {
+		
+	}
 `
