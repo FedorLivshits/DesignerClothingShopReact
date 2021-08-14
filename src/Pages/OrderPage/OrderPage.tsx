@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import {Container} from '../GlobalStyle'
-import {MainTitle, PageWrapper, Subtotal, SubtotalPrice, SummaryWrapper} from './CartPage/CartPageStyle'
+import {Container} from '../../GlobalStyle'
+import {MainTitle, PageWrapper, Subtotal, SubtotalPrice, SummaryWrapper} from '../CartPage/CartPageStyle'
 import styled from 'styled-components'
-import CartProductCard from '../Components/CartProductCard/CartProductCard'
-import {ProductType} from '../types/types'
+import CartProductCard from '../../Components/CartProductCard/CartProductCard'
+import {ProductType} from '../../types/types'
 import {useSelector} from 'react-redux'
-import {AppStateType} from '../redux/store'
-import FormOrder from '../Components/forOrderPage/FormOrder/FormOrder'
-import Loading from '../Components/Modal/Loading'
+import {AppStateType} from '../../redux/store'
+import FormOrder from './FormOrder/FormOrder'
+import Loading from '../../Components/LoadingComponent/Loading'
 
 export const Order = styled.div``
 
@@ -50,9 +50,6 @@ const OrderPage = () => {
                         </SubtotalPrice>
                     </SummaryWrapper>
                 </Order>
-                <Loading>
-
-                </Loading>
             </PageWrapper>
         </Container>
     )

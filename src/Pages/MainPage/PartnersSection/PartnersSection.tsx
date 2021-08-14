@@ -7,14 +7,17 @@ import partner4 from '../../../assets/img/partner-4.svg'
 import partner5 from '../../../assets/img/partner-5.svg'
 import partner6 from '../../../assets/img/partner-6.svg'
 import {PartnerLogo, PartnerLogoSpecial, PartnerLogoWrapper, PartnersBrandsInner, Title} from './PartnersSectionStyle'
+import FadeInWhenVisible from '../../../Components/FadeInWhenVisible/FadeInWhenVisible'
 
 
 const PartnersSection: React.FC = () => {
     return (
         <Container>
+            <FadeInWhenVisible>
             <Title>
                 Наши друзья
             </Title>
+            </FadeInWhenVisible>
             <PartnersBrandsInner>
                 <PartnerLogoWrapper>
                     <PartnerLogo src={partner1}/>

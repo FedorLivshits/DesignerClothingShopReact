@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import TopAboutSection from '../Components/forAboutPage/TopAboutSectionStyle/TopAboutSection'
-import QuoteSection from '../Components/forAboutPage/QuoteSection/QuoteSection'
-import TextBlockComponent from '../Components/forAboutPage/TextBlockComponent/TextBlockComponent'
+import TopAboutSection from './TopAboutSectionStyle/TopAboutSection'
+import QuoteSection from './QuoteSection/QuoteSection'
+import TextBlockComponent from './TextBlockComponent/TextBlockComponent'
+import {motion} from 'framer-motion'
 
 
 export const AboutPageWrapper = styled.div`
@@ -14,13 +15,16 @@ export const AboutPageWrapper = styled.div`
 
 const AboutPage = () => {
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{opacity: 1, transition: { duration: 0.4 } }}
+            exit={{ opacity: 0 }}>
             <AboutPageWrapper>
                 <TopAboutSection/>
                 <QuoteSection/>
                 <TextBlockComponent/>
             </AboutPageWrapper>
-        </>
+        </motion.div>
     )
 }
 

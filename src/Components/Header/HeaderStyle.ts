@@ -2,8 +2,8 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 interface LinkProps {
-    readonly logolink?: string
-    readonly iconlink?: string
+    readonly logolink?: boolean
+    readonly iconlink?: boolean
     readonly likedchange?: boolean
 }
 
@@ -40,7 +40,7 @@ export const NavLink = styled(Link)<LinkProps>`
 	border-radius: ${props => (props.iconlink ? '50%' : '5px')};
 	position: relative;
 	&:hover {
-		background: ${props => (props.iconlink ? 'white' : '#ebebeb')};
+		background: #ebebeb;
 	}
 	&:after{
 	    content: '';

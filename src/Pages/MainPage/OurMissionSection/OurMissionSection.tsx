@@ -11,6 +11,7 @@ import {
     TextCol,
     TitleCol
 } from './OurMissionSectionStyle'
+import FadeInWhenVisible from '../../../Components/FadeInWhenVisible/FadeInWhenVisible'
 
 
 const OurMissionSection: React.FC = () => {
@@ -29,9 +30,11 @@ const OurMissionSection: React.FC = () => {
                         src='https://everpress.imgix.net/assets/24da5a0cbfd03be1d661f569ca09645cb568bee3/static/media/mission.20307e52.jpg?w=826&h=1064&auto=format&bg=F7F8F9&fit=fill'/>
                 </OurMissionCol>
                 <OurMissionCol>
+                    <FadeInWhenVisible>
                     <MainTitle>
                         МЫ МЕНЯЕМ САМ СПОСОБ СОЗДАНИЯ ПРОДУКТА
                     </MainTitle>
+                    </FadeInWhenVisible>
                     <Row>
                         <OurMissionCol mr>
                             <TitleCol fontBig>

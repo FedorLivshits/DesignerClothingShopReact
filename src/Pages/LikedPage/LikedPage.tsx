@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react'
 import {useSelector} from 'react-redux'
-import {AppStateType} from '../redux/store'
-import ProductCard from '../Components/ProductCard/ProductCard'
-import {Container} from '../GlobalStyle'
-import {ProductsListWrapper} from '../Components/forShopPage/ProductsList/ProductsList'
+import {AppStateType} from '../../redux/store'
+import ProductCard from '../../Components/ProductCard/ProductCard'
+import {Container} from '../../GlobalStyle'
+import {ProductsListWrapper} from '../ShopPage/ProductsList/ProductsList'
 import styled from 'styled-components'
-import likeIcon from '../assets/img/like.svg'
+import likeIcon from '../../assets/img/like.svg'
 import { Link } from 'react-router-dom'
-import {ProductType} from '../types/types'
+import {ProductType} from '../../types/types'
 
 export const LikedPageWrapper = styled.div`
   min-height: 100vh;

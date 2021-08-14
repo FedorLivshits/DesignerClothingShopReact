@@ -34,7 +34,7 @@ const Header: React.FC<RouteComponentProps> = ({location}) => {
         <HeaderWrapper>
             <Container>
                 <HeaderInner>
-                    <NavLink to='/' logolink={'logoLink'}>
+                    <NavLink to='/' logolink={true}>
                         <Logo src={logo} alt='logo'/>
                     </NavLink>
                     <NavMenuList>
@@ -46,10 +46,10 @@ const Header: React.FC<RouteComponentProps> = ({location}) => {
                         </NavMenuItem>
                     </NavMenuList>
                     <MenuIcons>
-                        <NavLink to='/liked' iconlink={'iconLink'} likedchange={likedProductsChanged}>
+                        <NavLink to='/liked' iconlink={true} likedchange={likedProductsChanged}>
                             <IconImg src={likeIcon} alt='liked'/>
                         </NavLink>
-                        <NavLink to='/cart' iconlink={'iconLink'}>
+                        <NavLink to='/cart' iconlink={true}>
                             <IconImg src={cartIcon} alt='cart'/>
                         </NavLink>
                     </MenuIcons>

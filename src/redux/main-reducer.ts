@@ -12,7 +12,6 @@ const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 const SET_SHOW_MODAL = 'SET_SHOW_MODAL'
 const IS_LOADING = 'LOADING'
 
-
 let initialState = {
     products: [] as Array<ProductType>,
     productsPage: [] as Array<ProductType>,
@@ -83,9 +82,13 @@ export const loading = (loading: boolean) => ({type: IS_LOADING, loading})
 
 export const setProductsThunk = () => {
     return async (dispatch: Dispatch<ActionTypes>) => {
+        // @ts-ignore
+        dispatch(loading(true))
         const products = await fetchProducts()
         // @ts-ignore
         dispatch(getProducts(products))
+        // @ts-ignore
+        dispatch(loading(false))
     }
 }
 export const setProductsByPageThunk = (page: string) => {

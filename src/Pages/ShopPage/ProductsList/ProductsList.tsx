@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {Container} from '../../../GlobalStyle'
-import ProductCard from '../../ProductCard/ProductCard'
+import ProductCard from '../../../Components/ProductCard/ProductCard'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppStateType} from '../../../redux/store'
 import {setProductsByPageThunk} from '../../../redux/main-reducer'

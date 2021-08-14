@@ -1,15 +1,18 @@
 import React from 'react'
 import {Container} from '../../../GlobalStyle'
 import {Content, Image, MainTitle, Text, TextInner, TopAboutSectionWrapper} from './TopAboutSectionStyle'
+import FadeInWhenVisible from '../../../Components/FadeInWhenVisible/FadeInWhenVisible'
 
 const TopAboutSection: React.FC = () => {
     return (
         <Container>
             <TopAboutSectionWrapper>
+                <FadeInWhenVisible>
                 <MainTitle>
                     ПРИВЕТ, <br/>
                     МЫ КОМАНДА EVERPRESS!
                 </MainTitle>
+                </FadeInWhenVisible>
                 <Content>
                     <TextInner>
                         <Text>

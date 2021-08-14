@@ -1,6 +1,6 @@
 import React from 'react'
-import {MainTitle} from '../../../Pages/CartPage/CartPageStyle'
-import {Select} from '../../../Pages/ProductPage/ProductPageStyle'
+import {MainTitle} from '../../CartPage/CartPageStyle'
+import {Select} from '../../ProductPage/ProductPageStyle'
 import {countries} from '../../../assets/arrayOfCountries/countriesArray'
 import {useFormik} from 'formik'
 import * as yup from 'yup'
