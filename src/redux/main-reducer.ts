@@ -103,5 +103,4 @@ export const setProductsByPageThunk = (page: string) => {
     }
 }
 
-
 export default mainReducer

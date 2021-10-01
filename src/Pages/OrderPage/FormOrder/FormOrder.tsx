@@ -86,8 +86,8 @@ const FormOrder = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}>
                     <option value=''>Выберете страну доставки</option>
-                    {countries.map((c, i) => {
-                        return <option key={i} value={c}>
+                    {countries.map((c) => {
+                        return <option key={c} value={c}>
                             {c}
                         </option>
                     })}

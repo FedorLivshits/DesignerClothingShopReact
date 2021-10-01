@@ -51,7 +51,7 @@ const ProductsList = () => {
     return (
         <Container>
             <ProductsListWrapper>
-                {productsPage?.map((item, i) => <ProductCard key={i} id={item.id} img={item.photo}
+                {productsPage?.map((item, i) => <ProductCard key={item.id} id={item.id} img={item.photo}
                                                     name={item['product-name']}
                                                     designer={item['product-designer']} price={item.price}
                                                     // @ts-ignore

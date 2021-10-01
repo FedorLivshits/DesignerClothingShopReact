@@ -1,34 +1,28 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RouteComponentProps, useLocation } from 'react-router-dom'
 import cartIcon from '../../assets/img/Cart.svg'
 import likeIcon from '../../assets/img/like.svg'
 import logo from '../../assets/img/logo.svg'
-import {Container} from '../../GlobalStyle'
+import { Container } from '../../GlobalStyle'
+import { AppStateType } from '../../redux/store'
 import {
-    HeaderWrapper,
-    HeaderInner,
-    IconImg,
-    NavLink,
-    Logo,
-    MenuIcons,
-    NavMenuItem,
+    HeaderInner, HeaderWrapper, IconImg, Logo,
+    MenuIcons, NavLink, NavMenuItem,
     NavMenuList
 } from './HeaderStyle'
-import {useSelector} from 'react-redux'
-import {AppStateType} from '../../redux/store'
-import {RouteComponentProps, withRouter} from 'react-router-dom'
 
-const Header: React.FC<RouteComponentProps> = ({location}) => {
+const Header: React.FC = () => {
     const [likedProductsChanged, setLikedProductsChanged] = useState(false)
     const likedProducts = useSelector((state: AppStateType) => state.mainReducer.liked)
-
+	const { pathname } = useLocation()
     useEffect(() => {
         setLikedProductsChanged(true)
     }, [likedProducts])
 
     useEffect(() => {
-        if (location.pathname === '/liked') setLikedProductsChanged(false)
-
-    }, [location.pathname])
+        if (pathname === '/liked') setLikedProductsChanged(false)
+    }, [pathname])
 
     return (
         <HeaderWrapper>
@@ -59,4 +53,4 @@ const Header: React.FC<RouteComponentProps> = ({location}) => {
     )
 }
 
-export default withRouter(Header)
+export default Header
