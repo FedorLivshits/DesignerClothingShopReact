@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Header from './Components/Header/Header'
 import { AppWrapper, GlobalStyle } from './GlobalStyle'
 import MainPage from './Pages/MainPage/MainPage'
@@ -12,6 +12,7 @@ import LikedPage from './Pages/LikedPage/LikedPage'
 import CartPage from './Pages/CartPage/CartPage'
 import OrderPage from './Pages/OrderPage/OrderPage'
 import { AnimatePresence } from 'framer-motion'
+import NotFoundPage from './Pages/NotFoundPage/NotFoundPage'
 
 const App: React.FC = () => {
 	return (
@@ -20,13 +21,16 @@ const App: React.FC = () => {
 			<ScrollToTop />
 			<Header />
 			<AnimatePresence>
-				<Route exact path='/' render={() => <MainPage />} />
-				<Route exact path='/shop' render={() => <ShopPage />} />
-				<Route path='/shop/:id' render={() => <ProductPage />} />
-				<Route path='/about' render={() => <AboutPage />} />
-				<Route exact path='/liked' render={() => <LikedPage />} />
-				<Route exact path='/cart' render={() => <CartPage />} />
-				<Route exact path='/order' render={() => <OrderPage />} />
+				<Switch>
+					<Route exact path='/' render={() => <MainPage />} />
+					<Route exact path='/shop' render={() => <ShopPage />} />
+					<Route path='/shop/:id' render={() => <ProductPage />} />
+					<Route path='/about' render={() => <AboutPage />} />
+					<Route exact path='/liked' render={() => <LikedPage />} />
+					<Route exact path='/cart' render={() => <CartPage />} />
+					<Route exact path='/order' render={() => <OrderPage />} />
+					<Route component={NotFoundPage} />
+				</Switch>
 			</AnimatePresence>
 			<Footer />
 		</AppWrapper>
