@@ -16,9 +16,9 @@ import {
 	ProductWrapper,
 } from './ProductCardStyle'
 
-type PropsType = ProductCardType & RouteComponentProps
 
-const ProductCard: React.FC<PropsType> = ({
+
+const ProductCard: React.FC<ProductCardType> = ({
 	id,
 	img,
 	name,
