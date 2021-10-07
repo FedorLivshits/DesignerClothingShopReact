@@ -12,8 +12,8 @@ export const TextBlockWrapper = styled.div`
   }
 `
 export const BlockTitle = styled.h3`
-  font-size: 105px;
-  line-height: 115px;
+  font-size: 90px;
+  line-height: 105px;
   font-weight: 400;
   padding-bottom: 30px;
    @media screen and (max-width: 962px) {
